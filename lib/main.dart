@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/configs/app_theme.dart';
 import 'package:portfolio/features/home/presentation/bloc/home_bloc.dart';
 import 'package:portfolio/features/home/presentation/pages/home_pages.dart';
-import 'package:portfolio/features/home/presentation/pages/side_pages.dart';
 import 'package:portfolio/injection.dart';
 
 void main() async {
