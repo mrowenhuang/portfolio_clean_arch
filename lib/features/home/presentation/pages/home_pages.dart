@@ -17,20 +17,24 @@ class HomePages extends StatelessWidget {
       key: key,
       backgroundColor: Appcolor.def,
       appBar:
-          !Responsive.isDesktop(context)
+          Responsive.isMobile(context) ||
+                  Responsive.isMobileLarge(context) ||
+                  Responsive.isTablet(context)
               ? AppBar(
                 leading: IconButton(
                   onPressed: () {
                     key.currentState!.openDrawer();
                   },
-                  icon: Icon(Icons.menu, color: Colors.black, size: 40),
+                  icon: Icon(Icons.menu, color: Colors.black, size: 30),
                 ),
                 backgroundColor: Colors.transparent,
                 elevation: 0,
               )
               : null,
       drawer:
-          !Responsive.isDesktop(context)
+          Responsive.isMobile(context) ||
+                  Responsive.isMobileLarge(context) ||
+                  Responsive.isTablet(context)
               ? Drawer(
                 backgroundColor: Appcolor.secondary,
                 child: Padding(
@@ -136,13 +140,13 @@ class HomePages extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          padding: EdgeInsets.symmetric(vertical: 25),
+                          padding: EdgeInsets.symmetric(vertical: 20),
                           backgroundColor: Appcolor.primary,
                         ),
                         child: Text(
                           "Download CV",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -157,7 +161,7 @@ class HomePages extends StatelessWidget {
         constraints: BoxConstraints(maxWidth: double.infinity),
         child: Row(
           children: [
-            Responsive.isDesktop(context)
+            Responsive.isDesktop(context) || Responsive.isLaptop(context)
                 ? Expanded(
                   flex: 2,
                   child: Container(
@@ -275,13 +279,13 @@ class HomePages extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            padding: EdgeInsets.symmetric(vertical: 25),
+                            padding: EdgeInsets.symmetric(vertical: 20),
                             backgroundColor: Appcolor.primary,
                           ),
                           child: Text(
                             "Download CV",
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.w700,
                             ),
                           ),

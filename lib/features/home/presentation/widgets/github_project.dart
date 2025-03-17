@@ -6,7 +6,9 @@ import 'package:portfolio/features/home/presentation/responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 Widget githubProject(BuildContext context) {
-  return !Responsive.isDesktop(context)
+  return Responsive.isMobile(context) ||
+          Responsive.isMobileLarge(context) ||
+          Responsive.isTablet(context)
       ? Column(
         children: [
           Row(
@@ -14,14 +16,14 @@ Widget githubProject(BuildContext context) {
             children: [
               Text(
                 "GitHub Project :",
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
               ),
               BlocBuilder<HomeBloc, HomeState>(
                 builder: (context, state) {
                   if (state is SuccessGetHomeInitialProject) {
                     return Text(
                       state.project.length.toString(),
-                      style: TextStyle(fontSize: 26, color: Colors.black45),
+                      style: TextStyle(fontSize: 18, color: Colors.black45),
                     );
                   }
                   return Text("Something wrong");
@@ -128,14 +130,20 @@ Widget githubProject(BuildContext context) {
               children: [
                 Text(
                   "GitHub Project :",
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
+                  style: TextStyle(
+                    fontSize: !Responsive.isDesktop(context) ? 20 : 28,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
                 BlocBuilder<HomeBloc, HomeState>(
                   builder: (context, state) {
                     if (state is SuccessGetHomeInitialProject) {
                       return Text(
                         state.project.length.toString(),
-                        style: TextStyle(fontSize: 26, color: Colors.black45),
+                        style: TextStyle(
+                          fontSize: !Responsive.isDesktop(context) ? 18 : 26,
+                          color: Colors.black45,
+                        ),
                       );
                     }
                     return Text("Something wrong");

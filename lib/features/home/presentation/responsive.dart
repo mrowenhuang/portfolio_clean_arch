@@ -7,6 +7,7 @@ class Responsive extends StatelessWidget {
   final Widget? mobileLarge;
   final Widget? tablet;
   final Widget desktop;
+  final Widget laptop;
 
   const Responsive({
     Key? key,
@@ -14,6 +15,7 @@ class Responsive extends StatelessWidget {
     this.tablet,
     required this.desktop,
     this.mobileLarge,
+    required this.laptop,
   }) : super(key: key);
 
   static bool isMobile(BuildContext context) =>
@@ -25,15 +27,21 @@ class Responsive extends StatelessWidget {
   static bool isTablet(BuildContext context) =>
       MediaQuery.of(context).size.width < 1024;
 
-  static bool isDesktop(BuildContext context) =>
+  static bool isLaptop(BuildContext context) =>
       MediaQuery.of(context).size.width >= 1024;
+
+  static bool isDesktop(BuildContext context) =>
+      MediaQuery.of(context).size.width >= 1400;
 
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
-    if (_size.width >= 1024) {
+    if (_size.width >= 1400) {
       print("desktop");
       return desktop;
+    } else if (_size.width >= 1024) {
+      print('laptop');
+      return laptop;
     } else if (_size.width >= 700 && tablet != null) {
       print("tablet");
       return tablet!;
