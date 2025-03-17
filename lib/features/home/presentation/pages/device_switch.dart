@@ -15,7 +15,7 @@ class DeviceSwitch extends StatelessWidget {
             Responsive.isMobileLarge(context) ||
             Responsive.isTablet(context)
         ? SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: PageScrollPhysics(),
           child: Column(
             children: [
               SizedBox(
