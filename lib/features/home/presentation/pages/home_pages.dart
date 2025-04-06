@@ -6,6 +6,7 @@ import 'package:portfolio/features/home/presentation/widgets/animated_indicator.
 import 'package:portfolio/features/home/presentation/widgets/animated_skills_indicator.dart';
 import 'package:portfolio/features/home/presentation/widgets/info_text.dart';
 import 'package:portfolio/features/home/presentation/widgets/regular_text.dart';
+import 'dart:html';
 
 class HomePages extends StatelessWidget {
   const HomePages({super.key});
@@ -137,7 +138,13 @@ class HomePages extends StatelessWidget {
                       ),
                       SizedBox(height: 30),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          AnchorElement anchorElement = AnchorElement(
+                            href: "assets/pdf/eng_cv.pdf",
+                          );
+                          anchorElement.download = "Owen_CV";
+                          anchorElement.click();
+                        },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -276,7 +283,13 @@ class HomePages extends StatelessWidget {
                         ),
                         SizedBox(height: 30),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            AnchorElement anchorElement = AnchorElement(
+                              href: "assets/pdf/eng_cv.pdf",
+                            );
+                            anchorElement.download = "Owen_CV";
+                            anchorElement.click();
+                          },
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
