@@ -13,6 +13,8 @@ class HomePages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> key = GlobalKey();
+    print(MediaQuery.of(context).size.width);
+    print(Responsive.isMobile(context));
     return Scaffold(
       key: key,
       backgroundColor: Appcolor.def,

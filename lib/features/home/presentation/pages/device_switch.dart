@@ -214,7 +214,7 @@ class DeviceSwitch extends StatelessWidget {
                           elevation: 10,
                           borderRadius: BorderRadius.circular(300),
                           child: CircleAvatar(
-                            maxRadius: 100,
+                            maxRadius: 130,
                             backgroundColor: Appcolor.def,
                             backgroundImage: AssetImage(
                               "assets/image/profile.png",
@@ -333,15 +333,16 @@ class DeviceSwitch extends StatelessWidget {
                         Spacer(),
                         Material(
                           elevation: 10,
-                          borderRadius: BorderRadius.circular(300),
+                          borderRadius: BorderRadius.circular(200),
                           child: CircleAvatar(
-                            maxRadius: 150,
+                            maxRadius: 170,
                             backgroundColor: Appcolor.def,
                             backgroundImage: AssetImage(
                               "assets/image/profile.png",
                             ),
                           ),
                         ),
+
                         Spacer(),
                       ],
                     ),

@@ -42,9 +42,8 @@ Widget githubProject(BuildContext context) {
               } else if (state is SuccessGetHomeInitialProject) {
                 return SizedBox(
                   height: 500,
-                  width: Responsive.isTablet(context) ? 700 : 0,
+                  width: Responsive.isTablet(context) ? 700 : 500,
                   child: ListView.builder(
-                    physics: BouncingScrollPhysics(),
                     itemCount: state.project.length,
                     padding: EdgeInsets.all(20),
                     itemBuilder: (context, index) {
@@ -91,7 +90,26 @@ Widget githubProject(BuildContext context) {
                               ),
                               SizedBox(width: 20),
                               ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () async {
+                                  final Uri url = Uri.parse(
+                                    data.link.toString(),
+                                  );
+                                  if (await canLaunchUrl(url)) {
+                                    await launchUrl(
+                                      url,
+                                      mode: LaunchMode.externalApplication,
+                                    );
+                                  } else {
+                                    ScaffoldMessenger.of(
+                                      // ignore: use_build_context_synchronously
+                                      context,
+                                    ).showSnackBar(
+                                      SnackBar(
+                                        content: Text("Could not launch URL"),
+                                      ),
+                                    );
+                                  }
+                                },
                                 style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(5),
